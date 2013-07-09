@@ -9,11 +9,13 @@ Fast forward a couple months, and I'm on my laptop with no internet connection. 
 
 The Photos Weren't There
 ========================
-... a bunch of broken images! Facebook had, for some reason, chose to include only a small amount of my photos in my content archive. This, to me, was unnacceptable; if you're going to offer a "download all your content" button, you had better make sure it downloads all your content!
+... a bunch of broken images! Upon further inspection, all the image elements in my photo album archive page pointed to images out on Facebook's servers.
+
+Facebook had, for some reason, chose to include only a small amount of my photos in my content archive. This, to me, was unnacceptable; if you're going to offer a "download all your content" button, you had better make sure it downloads all your content!
 
 The reason that Facebook continues to do this even today escapes me. If you have any insight please feel free to contact me.
 
-So, in the end, I wrote a simple script to "fix" this problem. What it does is go through your archive and scrapes all the remote content that facebook put in your archive to be local content, and then updates the html files to point to the local content instead. There you go, a REAL archive of your Facebook photos and statuses, not dependent on any internet connection when browsing locally!
+So, in the end, I wrote a simple script to "fix" this problem. What it does is go through your archive and scrapes all the remote content that Facebook put in your archive to be local content, and then updates the html files to point to the local content instead. There you go, a REAL archive of your Facebook photos and statuses, not dependent on any internet connection when browsing locally!
 
 How to use
 ==========
