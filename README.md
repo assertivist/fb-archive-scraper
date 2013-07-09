@@ -20,7 +20,10 @@ So, in the end, I wrote a simple script to "fix" this problem. What it does is g
 How to use
 ==========
 
-`python fb-archive-scraper <path to archive>`
+
+You will require a python 2.7 installation and the [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) python module.
+
+Then: `python fb-archive-scraper <path to archive>`
 
 This will create a subfolder in each photo album folder called "scraped", and save the remote photos there. It also makes sure there are no remote files on any of the other archive pages, and creates a similar 'scraped' folder in the html section of your archive as well.
 
