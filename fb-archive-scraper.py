@@ -14,15 +14,14 @@ def scrape(html_file):
         for img in soup.find_all('img'):
             src = img.get('src')
             if 'http' in src: #get all remote images
-                print src
                 elems = src.split('/') 
-                filename = elems[-1] #image name
+                filename = elems[-1] #image file name
                 new_path = os.path.join(os.path.join(html_dir, 'scraped/'), filename)
                 new_dir = os.path.split(new_path)[0]
                 make_sure_path_exists(new_dir)
                 download(src, new_path) #save it
-                print "got ", filename
-                newfilename = os.path.relpath(new_path, html_dir) #"stolen/%s" % (filename)
+                print "downloaded %s" % filename
+                newfilename = os.path.relpath(new_path, html_dir) 
                 img['src'] = newfilename #change the src in img tag
 
     with open(html_file, 'w+') as f:
@@ -50,7 +49,8 @@ if __name__ == "__main__":
         main_dir = sys.argv[1]
     except:
         print "usage: fb-archive-scraper.py <path to fb archive>"
-
+    
+    #first do the photo albums
     photos = os.path.join(main_dir, 'photos')
     if os.path.exists(photos):
         for filename in os.listdir(photos):
@@ -61,7 +61,7 @@ if __name__ == "__main__":
                 albumindex = os.path.join(albumdir, 'index.htm')
                 if os.path.isfile(albumindex):
                     scrape(albumindex)
-
+    #make sure we didn't miss any images on the other pages of the archive
     html_dir = os.path.join(main_dir, 'html')
     if os.path.exists(html_dir):
         for filename in os.listdir(html_dir):
